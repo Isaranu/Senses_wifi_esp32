@@ -5,7 +5,10 @@
 #include "WiFi.h"
 
 class Senses_wifi_esp32{
+
   public:
+    void setPowerOff();
+    void setPowerOn();
     String connect(const char *ssid, const char *passw, const char *userid, const char *key);
     String send(int slotnum, float data);
     const char *_ssid, *_passw;
@@ -16,6 +19,7 @@ class Senses_wifi_esp32{
     float _data;
     String _path;
     String _response;
+
 };
 
 #endif
