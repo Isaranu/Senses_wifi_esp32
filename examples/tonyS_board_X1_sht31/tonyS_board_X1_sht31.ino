@@ -17,18 +17,16 @@ Senses_wifi_esp32 myiot;
 void setup(){
   Serial.begin(9600);
 
-  /* Pin 2 is VCC enabled for TonyS X1*/
-  pinMode(2, OUTPUT);
-  digitalWrite(2, HIGH);
+  /* Enabled Vcc for TonyS X1*/
+  myiot.setPowerOn();
   
   response = myiot.connect(ssid, passw, userid, key);
   Serial.println(response);
 
   while (!Serial)
-    delay(10);     // will pause Zero, Leonardo, etc until serial console opens
+    delay(10);
 
-  Serial.println("SHT31 test");
-  if (! sht31.begin(0x44)) {   // Set to 0x45 for alternate i2c addr
+  if (!sht31.begin(0x44)) {   /* SHT31 sensor I2C address : 0x44 */
     Serial.println("Couldn't find SHT31");
     while (1) delay(1);
   }
@@ -47,5 +45,5 @@ void loop(){
   
   Serial.println(response);
 
-  delay(5000);
+  delay(10000);
 }
