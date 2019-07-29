@@ -5,6 +5,8 @@
 #define retry_wait 1000
 #define LAGTIME 100
 
+#define TONY_POWER_PIN 2
+
 String Senses_wifi_esp32::connect(const char *ssid, const char *passw, const char *userid, const char *key){
 
   _ssid = ssid;
@@ -84,4 +86,14 @@ String Senses_wifi_esp32::send(int slotnum, float data){
 
   }
 
+}
+
+void Senses_wifi_esp32::setPowerOff(){
+  pinMode(TONY_POWER_PIN, OUTPUT);
+  digitalWrite(TONY_POWER_PIN, LOW);
+}
+
+void Senses_wifi_esp32::setPowerOn(){
+  pinMode(TONY_POWER_PIN, OUTPUT);
+  digitalWrite(TONY_POWER_PIN, HIGH);
 }
