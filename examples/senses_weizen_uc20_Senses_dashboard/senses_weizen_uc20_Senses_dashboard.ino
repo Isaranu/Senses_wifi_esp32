@@ -16,7 +16,7 @@ int data=0;
 UC20_HTTP http;
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   ucSerial.begin(115200,SERIAL_8N1,RX_PIN,TX_PIN);
   gsm.initSerial(ucSerial);
 
