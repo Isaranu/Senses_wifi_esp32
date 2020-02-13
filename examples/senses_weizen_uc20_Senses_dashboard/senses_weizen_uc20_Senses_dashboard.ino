@@ -1,5 +1,6 @@
 /*
   Use with SENSES WEIZENS board vs ThaiEasyElec UC20 board (Pi Hat style)
+  For Library UC20.h, please download at : https://github.com/Isaranu/uc20
 */
 
 #include "UC20_HTTP.h"
