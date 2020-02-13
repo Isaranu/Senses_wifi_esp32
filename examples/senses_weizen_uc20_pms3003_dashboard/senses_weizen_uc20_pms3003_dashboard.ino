@@ -1,3 +1,8 @@
+/*
+  Use with SENSES WEIZENS board vs ThaiEasyElec UC20 board (Pi Hat style)
+  And Dust sensor : PMS3003 Plantower http://www.plantower.com/en/content/?107.html
+*/
+
 #include "UC20_HTTP.h"
 
 #define TX_PIN  32
