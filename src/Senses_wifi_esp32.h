@@ -12,9 +12,11 @@ class Senses_wifi_esp32{
     void setPowerOn();
     String connect(const char *ssid, const char *passw, const char *userid, const char *key);
     String send(int slotnum, float data);
+    String getDigitalControl(int controlport);
     String MACtoString(uint8_t* macAddress);
     const char *_ssid, *_passw;
     const char *_userid, *_key;
+    String _controlresponse;
 
   private:
     int _slotnum;
@@ -22,7 +24,7 @@ class Senses_wifi_esp32{
     String _path;
     String _response;
     String _wfMcaddr;
-
+    int _controlport;
 };
 
 #endif
