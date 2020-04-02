@@ -133,6 +133,41 @@ String Senses_wifi_esp32::send(int slotnum, float data){
 
 }
 
+String Senses_wifi_esp32::getDigitalControl(int controlport){
+
+  _controlport = controlport;
+
+  WiFiClient client;
+  if(client.connect(SENSES_HOST, SENSES_PORT)){
+
+    _path = "GET /getdigitalstatus/";
+    _path += String(_userid);
+    _path += "/";
+    _path += String(_key);
+    _path += "/";
+    _path += String(_controlport);
+
+    _path += " HTTP/1.1\r\n";
+    _path += "Host: ";
+    _path += SENSES_HOST;
+    _path += ":";
+    _path += SENSES_PORT;
+    _path += "\r\n";
+    _path += "Connection: keep-alive\r\n\r\n";
+
+    client.print(_path);
+    delay(LAGTIME);
+
+    while(client.available()){
+      _controlresponse = client.readStringUntil('\r');
+    }
+
+    _controlresponse.replace("\n","");
+
+    return String(_controlresponse);
+  }
+}
+
 void Senses_wifi_esp32::setPowerOff(){
   pinMode(TONY_POWER_PIN, OUTPUT);
   digitalWrite(TONY_POWER_PIN, LOW);
