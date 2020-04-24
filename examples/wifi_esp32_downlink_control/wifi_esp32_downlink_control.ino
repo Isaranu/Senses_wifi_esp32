@@ -4,7 +4,7 @@
 */
 
 #include "Senses_wifi_esp32.h"
-#define led_pin 2
+#define led_pin 13
 
 const char *ssid = "your-wifi-network-name";
 const char *passw = "your-wifi-password";
